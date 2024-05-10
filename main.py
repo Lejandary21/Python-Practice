@@ -47,4 +47,4 @@ while play == "yes":
     print("Good job {}! Thank you so much for answering my quiz! Your final score {} out of 15".format(name, score)) 
     play = input("Do you want to play again?").lower()
 
-print("Oh okay! Goodbye then! :)")
+print("Oh okay! Goodbye then! ^_^")
