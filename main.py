@@ -44,7 +44,12 @@ while play == "yes":
         print("Sorry! That's incorrect. :(")
         print("The correct answer is Tokyo! Better luck next time.")
     # Ending
-    print("Good job {}! Thank you so much for answering my quiz! Your final score {} out of 15".format(name, score)) 
+    print("Good job {}! Thank you so much for answering my quiz! Your final score {}.".format(name, score)) 
     play = input("Do you want to play again?").lower()
+    try:
+        tries = input("How many attempts do you want at each question? 1-3")
+        tries = int(tries)
+    except:
+        print("That's not a number unfortunately. Maybe type 1, 2 or 3.")
 
 print("Oh okay! Goodbye then! ^_^")
