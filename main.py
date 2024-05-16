@@ -8,7 +8,8 @@ QUESTIONS = ["What is the capital of New Zealand?",
 OPTIONS = [["Wellington", "New York", "London", "Rio De Janeiro"],
            ["Canberra", "Sydney", "Melbourne", "Brisbane"],
            ["Kyoto", "Tokyo", "Osaka", "Kawasaki"]]
-
+SHORT_OPINIONS = ["a", "b", "c", "d"]
+ANSWERS = [0,0,1]
 # Intro
 name = input("What's your name?")
 print("Hello! Welcome to the quiz" ,name)
@@ -25,45 +26,19 @@ while play == "yes":
     score = 0
 
     #Question 1
-    question = "What is the capital of New Zealand?"
-    a = "Wellington"
-    b = "New York"
-    c = "London"
-    d = "Rio De Janeiro"
-    answer  = input(QUESTION_FORMAT.format(question, a, b, c, d)).lower()
+    answer  = input(QUESTION_FORMAT.format(QUESTIONS[0], OPTIONS[0][0],
+                                           OPTIONS[0][1], OPTIONS[0][2], OPTIONS[0][3])).lower()
     score += 5
-    if answer.lower() == a or answer.lower() == "a":
+    if answer == OPTIONS[0][ANSWERS[0]] or answer == SHORT_OPINIONS[ANSWERS[0]]:
         print("Correct! It is indeed Wellington")
         print(random.choice(GOOD_COMMENTS))
     elif answer == "":
         print("Oh naur...")
-    elif answer != a and answer != "a" and answer != b and answer != "b" and answer != c and answer != "c" and answer != d and answer != "d":
-        print("That wasn't an option")
+    elif answer in  SHORT_OPINIONS or answer in OPTIONS[0]:
+        print("That's incorrect!")
+        print(random.choice(BAD_COMMENTS))
     else: 
-        print("The correct answer is Wellington! Better luck next time.")
-        print(random.choice(BAD_COMMENTS))
-#Question 2
-    answer =input("What's Australia's capital city?").upper()
-    if answer == "CaNbErRa".upper():
-        print("Correct! It is indeed Canberra. Good job!")
-        print(random.choice(GOOD_COMMENTS))
-        score += 5
-    elif answer == "":
-        print("Did your keyboard break?")
-    else: 
-        print(random.choice(BAD_COMMENTS))
-        print("The correct answer is Canberra! Better luck next time.")
-#Question 3
-    answer =input("What's Japan's capital city?").upper()
-    if answer == "ToKyO".upper():
-        print("Correct! It is indeed Tokyo!")
-        print(random.choice(GOOD_COMMENTS))
-        score +=5
-    elif answer == "":
-        print("Did something short-circuit?")
-    else:
-        print(random.choice(BAD_COMMENTS))
-        print("The correct answer is Tokyo! Better luck next time.")
+        print("That wasn't an option...")
 # Ending
     print("Good job {}! Thank you so much for answering my quiz! Your final score {}.".format(name, score)) 
     play = input("Do you want to play again?").lower()
