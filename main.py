@@ -10,35 +10,43 @@ OPTIONS = [["Wellington", "New York", "London", "Rio De Janeiro"],
            ["Kyoto", "Tokyo", "Osaka", "Kawasaki"]]
 SHORT_OPINIONS = ["a", "b", "c", "d"]
 ANSWERS = [0,0,1]
+
+play = "yes"
 # Intro
 name = input("What's your name?")
 print("Hello! Welcome to the quiz" ,name)
 print("this quiz is about capital cities of the world.")
+#Attempts
 while True:
     try:
         tries = input("How many attempts do you want at each question? 1-3")
         tries = int(tries)
         break
-    except:
+    except:     
         print("That's not a number unfortunately. Maybe type 1, 2 or 3.")
-play = "yes"
+#Starting the quiz
 while play == "yes":
     score = 0
-
-    #Question 1
-    answer  = input(QUESTION_FORMAT.format(QUESTIONS[0], OPTIONS[0][0],
-                                           OPTIONS[0][1], OPTIONS[0][2], OPTIONS[0][3])).lower()
-    score += 5
-    if answer == OPTIONS[0][ANSWERS[0]] or answer == SHORT_OPINIONS[ANSWERS[0]]:
-        print("Correct! It is indeed Wellington")
-        print(random.choice(GOOD_COMMENTS))
-    elif answer == "":
-        print("Oh naur...")
-    elif answer in  SHORT_OPINIONS or answer in OPTIONS[0]:
-        print("That's incorrect!")
-        print(random.choice(BAD_COMMENTS))
-    else: 
-        print("That wasn't an option...")
+    for i in range(len(QUESTIONS)):
+        question_attempts = tries
+        while question_attempts > 0:
+        #Questions
+            answer  = input(QUESTION_FORMAT.format(QUESTIONS[i], OPTIONS[i][0],
+                                            OPTIONS[i][1], OPTIONS[i][2], OPTIONS[i][3])).lower()
+            if answer == OPTIONS[i][ANSWERS[i]] or answer == SHORT_OPINIONS[ANSWERS[i]]:
+                print("Correct! It is indeed Wellington")
+                print(random.choice(GOOD_COMMENTS))
+                score += 5
+                break
+            elif answer == "":
+                print("Oh naur...")
+            elif answer in  SHORT_OPINIONS or answer in OPTIONS[i]:
+                print("That's incorrect!")
+                print(random.choice(BAD_COMMENTS))
+                question_attempts -=  1
+            else: 
+                print("That wasn't an option...")
+            
 # Ending
     print("Good job {}! Thank you so much for answering my quiz! Your final score {}.".format(name, score)) 
     play = input("Do you want to play again?").lower()
