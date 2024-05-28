@@ -4,12 +4,14 @@ GOOD_COMMENTS =  ["Nice one!", "Good job!", "Brilliant!"]
 BAD_COMMENTS = ["Womp womp...", "Good try but try again!", ]
 QUESTIONS = ["What is the capital of New Zealand?",
                 "What's Australia's capital city? ",
-                    "What's Japan's capital city?"]
+                    "What's Japan's capital city?",
+                        "What's the capital of China?"]
 OPTIONS = [["Wellington", "New York", "London", "Rio De Janeiro"],
            ["Canberra", "Sydney", "Melbourne", "Brisbane"],
-           ["Kyoto", "Tokyo", "Osaka", "Kawasaki"]]
+           ["Kyoto", "Tokyo", "Osaka", "Kawasaki"],
+           ["Nanjing", "Shanghai", "Guangzhou", "Beijing"]]
 SHORT_OPINIONS = ["a", "b", "c", "d"]
-ANSWERS = [0,0,1]
+ANSWERS = [0,0,1,3]
 
 play = "yes"
 # Intro
